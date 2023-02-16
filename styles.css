@@ -1,0 +1,858 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Raleway&family=Roboto:wght@300&display=swap');
+
+html {
+  background-color: #f5f3f3;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.scroller {
+  overflow-y: scroll;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+}
+
+
+section {
+  scroll-snap-align: end;
+  height: 100vh;
+}
+
+.mobile-nav-bar {
+  display: none;
+}
+
+.fixed-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  z-index: 5; 
+  width: 100%; 
+  height: 50px; 
+  scroll-padding-top: 160px;
+  background-color: rgba(209, 206, 206, 0.26)
+}
+
+.logo {
+  height: auto;
+  max-width: 10%;
+  min-width: 75px;
+}
+
+#home {
+  display: flex;
+  padding: 10px;
+  width: min-content;
+}
+
+.fixed-nav-bar ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+}
+
+.fixed-nav-bar li {
+  padding: 10px 20px;
+}
+
+.fixed-nav-bar li a {
+  display: block;
+  padding: 0.5rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  background:
+    linear-gradient(
+      to right,
+      #e9f8f6,
+      #e9f8f6
+    ),
+    linear-gradient(
+      to right,
+      #d5431a,
+      #003c4b,
+      #9cd5cc
+    );
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+.fixed-nav-bar li a:link {
+  color:#000;
+  text-decoration: none;
+}
+
+.fixed-nav-bar li a:hover {
+  color: #ca6347;
+  background-size: 0 3px, 100% 3px;
+}
+
+.fixed-nav-bar li a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  background-image: url(./img/jr-korpa-u3yyYID6eP4-unsplash.jpg);
+  height: 100vh;
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  color:#f5f3f3;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  letter-spacing: 1px;
+
+}
+
+.fadeInAnimation {
+  animation: fadeIn 2s;
+  animation-fill-mode: forwards;
+}
+
+.slideLeftToRightAnimation {
+  animation: slideLeftToRight 1.5s;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1;
+         visibility: visible; }
+}
+
+@keyframes slideLeftToRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50px, 0, 0);
+    transition: 0.25s all ease-in-out;
+  }
+
+  100% {
+    display: flex;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+}
+
+.hero-title {
+  font-size: 4.5rem;
+}
+
+.crayon {
+  font-family: 'Indie Flower', cursive;
+  font-size: 6.3rem;
+  letter-spacing: 2px;
+  /* Create a conic gradient. */
+  /* Double percentages to avoid blur (#000 10%, #fff 10%, #fff 20%, ...). */
+  background: #CA4246;
+  background-color: #CA4246;
+  background: conic-gradient(
+    /*#CA4246 16.666%, 
+    #E16541 16.666%, 
+    #E16541 33.333%, 
+    #F18F43 33.333%, 
+    #F18F43 50%, 
+    #8B9862 50%, 
+    #8B9862 66.666%, 
+    #476098 66.666%, 
+    #476098 83.333%, 
+    #A7489B 83.333%*/
+    #d5431a 16.666%,
+    #003c4b 16.666%,
+    #003c4b 33.333%,
+    #0f809c 33.333%,
+    #0f809c 50%,
+    #9cd5cc 50%,
+    #9cd5cc 66.666%,
+    #eb7b5c 66.666%,
+    #eb7b5c 83.333%,
+    #ffbc2b 83.333%
+    
+    );
+  
+  /* Set thee background size and repeat properties. */
+  background-size: 57%;
+  background-repeat: repeat;
+  
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  
+  /* Animate the text when loading the element. */
+  /* This animates it on page load and when hovering out. */
+  animation: rainbow-text-animation-rev 0.5s ease forwards;
+  text-shadow: none;
+  margin: 0;
+}
+
+/* Add animation on hover. */
+.crayon:hover {
+  animation: rainbow-text-animation 0.5s ease forwards;
+}
+
+/* Move the background and make it larger. */
+/* Animation shown when hovering over the text. */
+@keyframes rainbow-text-animation {
+  0% {
+    background-size: 57%;
+    background-position: 0 0;
+  }
+  20% {
+    background-size: 57%;
+    background-position: 0 1em;
+  }
+  100% {
+    background-size: 300%;
+    background-position: -9em 1em;
+  }
+}
+
+/* Move the background and make it smaller. */
+/* Animation shown when entering the page and after the hover animation. */
+@keyframes rainbow-text-animation-rev {
+  0% {
+    background-size: 300%;
+    background-position: -9em 1em;
+  }
+  20% {
+    background-size: 57%;
+    background-position: 0 1em;
+  }
+  100% {
+    background-size: 57%;
+    background-position: 0 0;
+  }
+}
+
+.hero-subtitle {
+  visibility: hidden;
+  font-size: 3rem;
+  animation-fill-mode: forwards;
+}
+
+.hero-subtitle a {
+  display: inline-flex;
+  color: #003c4b;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-subtitle a::before {
+  position: absolute;
+  content: attr(data-content); /* Prints the value of the attribute */
+  top: 0;
+  left: 0;
+  width: 0;
+  white-space: nowrap;
+  color: #df9b0a;
+  text-decoration: underline;
+  overflow: hidden;
+  transition: width 275ms ease;
+  text-shadow: none;
+}
+
+.hero-subtitle a:hover::before {
+  width: 100%;
+}
+
+.hero-subtitle a:link {
+  text-decoration: none;
+}
+
+.hero-subtitle a:visited {
+  color: #003c4b;
+}
+
+#mission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url(./img/annie-spratt-LI3gYTsaoKE-unsplash.jpg);
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #d5421ab2;
+  color:#324a5a;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.mission-title {
+  font-size: 3.5rem;
+}
+
+.mission-highlight {
+  color: #004b5e;
+}
+
+.mission-phrase {
+  font-size: 2rem;
+  text-shadow: none;
+  visibility: hidden;
+}
+
+.mission-slogan {
+  animation-delay: 2.5s;
+}
+
+.mission-slogan a {
+  display: inline-flex;
+  color: #df9b0a;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-slogan a::before {
+  position: absolute;
+  content: attr(data-content); /* Prints the value of the attribute */
+  top: 0;
+  left: 0;
+  width: 0;
+  white-space: nowrap;
+  color: #d5421ab2;
+  text-decoration: underline;
+  overflow: hidden;
+  transition: width 275ms ease;
+  text-shadow: none;
+}
+
+.mission-slogan a:hover::before {
+  width: 100%;
+}
+
+.mission-slogan a:link {
+  text-decoration: none;
+}
+
+.mission-slogan a:visited {
+  color: #df9b0a;
+}
+
+#repertoire {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-image: url(./img/annie-spratt-0ZPSX_mQ3xI-unsplash.jpg);
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  color:#324a5a;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.repertoire-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.repertoire-title {
+  font-size: 3.5rem;
+}
+
+.repertoire-highlight {
+  color: #d5431a;
+}
+
+.repertoire-subtitle {
+  font-size: 2rem;
+  padding-bottom: 10px;
+  visibility: hidden;
+}
+
+.portfolio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-delay: 2.5s;
+  visibility: hidden;
+  /*background-color: #e2e8e4;*/
+  width: 100%;
+  /*padding: 4% 2%;*/
+  box-sizing: border-box;
+  /*height: 100vh;*/
+}
+
+.portfolio-item {
+  /*
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  padding: 20px;
+*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:#324a5a;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5faf2;
+  flex: 1;
+  overflow: hidden;
+  transition: 0.5s;
+  margin: 0 2%;
+  box-shadow: 0 20px 30px rgba(0,0,0,.1);
+  line-height: 0;
+  border-radius: 2%;
+}
+
+.portfolio-item > img {
+  width: 100%;
+  height: calc(100% - 10vh);
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.portfolio-item > p {
+  font-size: 3vh;
+  display: block;
+  text-align: center;
+  height: 4vh;
+  line-height: 1.5;
+}
+
+.portfolio-item:hover { flex: 1 1 25%; }
+.portfolio-item:hover > img {
+  width: 100%;
+  height: 100%;
+}
+
+.repertoire-subtitle a {
+  display: inline-flex;
+  color: #51a598;
+  position: relative;
+  overflow: hidden;
+}
+
+.repertoire-subtitle a::before {
+  position: absolute;
+  content: attr(data-content); /* Prints the value of the attribute */
+  top: 0;
+  left: 0;
+  width: 0;
+  white-space: nowrap;
+  color: #0f809c;
+  text-decoration: underline;
+  overflow: hidden;
+  transition: width 275ms ease;
+  text-shadow: none;
+}
+
+.repertoire-subtitle a:hover::before {
+  width: 100%;
+}
+
+.repertoire-subtitle a:link {
+  text-decoration: none;
+}
+
+.repertoire-subtitle a:visited {
+  color: #51a598;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./img/nathan-dumlao-WDjNsJWIxVE-unsplash.jpg);
+  background-position: 0% 45%; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  color:#324a5a;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.contact-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-title {
+  font-size: 3.5rem;
+}
+
+.contact-slogan {
+  font-size: 2rem;
+  padding-bottom: 10px;
+  visibility: hidden;
+}
+
+.social-media {
+  display: inline-flex;
+  justify-content: center;
+  visibility: hidden;
+  animation-delay: 2.5s;
+  flex-wrap: wrap;
+}
+
+.social-media-icon {
+  margin: 10px;
+}
+
+@media only screen and (max-width: 1310px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .crayon {
+    font-size: 5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+
+  .mission-title {
+    font-size: 2.5rem;
+  }
+
+  .mission-phrase {
+    font-size: 1rem;
+  }
+
+  .repertoire-title {
+    font-size: 2.5rem;
+  }
+  
+  .repertoire-subtitle {
+    font-size: 2rem;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+  }
+  
+  .contact-slogan {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width:300px) and (max-width: 700px) {
+  .fixed-nav-bar ul {
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    /*border: rgb(151, 151, 151) solid 1px;*/
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    width: 60vw;
+    height: calc(100vh - 20px);
+    justify-content: flex-start;
+    padding-top: 45px;
+  }
+
+  .fixed-nav-bar li a{
+    font-size: 18px;
+  }
+
+  .dropdown { 
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .hamburger { 
+    align-self: flex-end;
+    z-index: 6;
+  }
+
+  .menu-items {
+    width: 100%;
+  }
+  
+  label {
+    cursor: pointer;
+    padding-top: 10px;
+    padding-right: 10px;
+  }
+  
+  input[type=checkbox] + label .icon-bar {
+    display: block;
+    width: 34px;
+    height: 4px;
+    background-color: rgb(238, 234, 234);
+    margin: 5px;
+    transition: all 0.2s;
+  }
+
+  input[type=checkbox] + label .top-bar {
+    transform: rotate(0);
+  }
+
+  input[type=checkbox] + label .middle-bar {
+    opacity: 1;
+  }
+  
+  input[type=checkbox]:checked + label .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+  }
+
+  input[type=checkbox]:checked + label .middle-bar {
+    opacity: 0;
+  }
+
+  input[type=checkbox]:checked + label .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+  }
+   
+  input[type=checkbox] + label + ul {
+    display: none;
+  }
+
+  input[type=checkbox]:checked + label + ul {
+    display: flex;
+    animation: 0.5s menu-items;
+    @keyframes menu-items {
+      from {
+        margin-left: 100%;
+      }
+      to {
+        margin-left: 0%;
+      }
+    }
+    
+  }
+
+  .crayon {
+    font-size: 4rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .mission-title {
+    font-size: 2rem;
+  }
+
+  .mission-phrase {
+    font-size: 1rem;
+    padding: 0px 32px;
+  }
+
+  .repertoire-title {
+    font-size: 2rem;
+  }
+  
+  .repertoire-subtitle {
+    font-size: 1rem;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+  
+  .contact-slogan {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 465px) {
+  .crayon {
+    display: flex;
+    font-size: 4.5rem;
+    justify-content: center;
+  }
+
+  .hero-title {
+    display: flex;
+    font-size: 3rem;
+    flex-direction: column;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .mission-title {
+    font-size: 2rem;
+  }
+
+  .mission-phrase {
+    font-size: 1rem;
+    padding: 0px 32px;
+  }
+
+  .repertoire-title {
+    font-size: 2rem;
+  }
+  
+  .repertoire-subtitle {
+    font-size: 1rem;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+  
+  .contact-slogan {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .fixed-nav-bar ul {
+    flex-direction: column;
+    position: absolute;
+    top: -500px;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    box-shadow: none;
+    transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    justify-content: space-between;
+    padding-top: 5vh;
+  }
+
+  .fixed-nav-bar ul li{
+    padding: 10px 0;
+    text-align: center;
+    transition: all .2s ease-out;
+  }
+
+  .fixed-nav-bar ul li:hover{
+    letter-spacing: 2px;
+    opacity: .6;
+  }
+
+  .dropdown { 
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .hamburger { 
+    align-self: flex-end;
+    z-index: 6;
+  }
+  
+  label {
+    cursor: pointer;
+    padding-top: 10px;
+    padding-right: 10px;
+  }
+  
+  input[type=checkbox] + label .icon-bar {
+    display: block;
+    width: 34px;
+    height: 4px;
+    background-color: #ccc;
+    margin: 5px;
+    transition: all 0.2s;
+  }
+
+  input[type=checkbox] + label .top-bar {
+    transform: rotate(0);
+  }
+
+  input[type=checkbox] + label .middle-bar {
+    opacity: 1;
+  }
+  
+  input[type=checkbox]:checked + label .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+  }
+
+  input[type=checkbox]:checked + label .middle-bar {
+    opacity: 0;
+  }
+
+  input[type=checkbox]:checked + label .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+  }
+   
+  input[type=checkbox] + label + ul {
+    display: none;
+  }
+
+  input[type=checkbox]:checked + label + ul{
+    display: flex;
+    top: 0;
+  }
+
+  .crayon {
+    font-size: 4rem;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .repertoire-title {
+    font-size: 2rem;
+  }
+  
+  .repertoire-subtitle {
+    font-size: 1rem;
+    padding: 0px 32px;
+  }
+
+  .portfolio {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 32px;
+  }
+
+  .portfolio-item {
+    margin-top: 10px;;
+  }
+
+  .portfolio-item > p {
+    font-size: 2vh;
+    display: block;
+    text-align: center;
+    height: 0vh;
+    line-height: 0;
+  }
+
+  .contact-title {
+    font-size: 1.5rem;
+  }
+  
+  .contact-slogan {
+    font-size: 1rem;
+    padding: 0px 32px;
+  }
+
+}

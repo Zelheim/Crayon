@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
+    <title>Crayon</title>
+  </head>
+
+  <body>
+    <script src="https://code.iconify.design/iconify-icon/1.0.3/iconify-icon.min.js"></script>
+    <script>
+      function createObserver(className, classNameToAdd) {
+        let options = {
+          root: null,
+          rootMargin: "0px",
+        };
+
+        var elements = document.getElementsByClassName(className);
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.intersectionRatio > 0) {
+              entry.target.classList.add(classNameToAdd);
+              console.log("yo bi");
+            } else {
+              entry.target.classList.remove(classNameToAdd);
+            }
+          }, options);
+        });
+
+        for (var i = 0; i < elements.length; i++) {
+          observer.observe(elements[i]);
+        }
+      }
+
+      // Set things up
+      window.addEventListener(
+        "load",
+        (event) => {
+          createObserver("animate-with-fade", "fadeInAnimation");
+          createObserver("animate-with-slide", "slideLeftToRightAnimation");
+        },
+        false
+      );
+    </script>
+
+    <nav class="fixed-nav-bar">
+      <a id="home" href="/"
+        ><img class="logo" src="./img/crayon_logo.png" alt="Logo of Crayon"
+      /></a>
+      <div>
+        <input
+          id="dropdown"
+          class="input-box"
+          type="checkbox"
+          style="display: none"
+        />
+        <label for="dropdown" class="dropdown">
+          <span class="hamburger">
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </span>
+        </label>
+        <ul class="menu-items">
+          <li><a href="#mission">our mission</a></li>
+          <li><a href="#repertoire">repertoire</a></li>
+          <!-- <li><a href="#team">our team</a></li> -->
+          <li><a href="#contact">contact us</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="scroller">
+      <section class="hero">
+        <h1 class="hero-title animate-with-fade">
+          Welcome to <span class="crayon">Crayon</span>
+        </h1>
+        <h2 class="hero-subtitle animate-with-slide">
+          your art starts <a href="#mission" data-content="here">here</a>
+        </h2>
+      </section>
+
+      <section id="mission">
+        <h3 class="mission-title animate-with-fade">
+          our <span class="mission-highlight">mission</span>
+        </h3>
+        <p class="mission-statement mission-phrase animate-with-slide">
+          we aim to teach you about art in a simpler, more accessible format.
+        </p>
+        <p class="mission-slogan mission-phrase animate-with-slide">
+          art history? art techniques? you name it, we have
+          <a href="#repertoire" data-content="it">it</a>
+        </p>
+      </section>
+
+      <section id="repertoire">
+        <div class="repertoire-intro">
+          <h3 class="repertoire-title animate-with-fade">
+            our <span class="repertoire-highlight">repertoire</span>
+          </h3>
+          <p class="repertoire-subtitle animate-with-slide">
+            a small peek at what our students have <a href="#contact" data-content="accomplished">accomplished</a>
+          </p>
+        </div>
+        <div class="portfolio animate-with-fade">
+          <div class="portfolio-item">
+            <img src="https://source.unsplash.com/random/1000x800/?painting" />
+            <p>by alan</p>
+          </div>
+  
+          <div class="portfolio-item">
+            <img src="https://source.unsplash.com/random/1000x800/?3d,modeling" />
+            <p>by brittany</p>
+          </div>
+          
+          <div class="portfolio-item">
+            <img src="https://source.unsplash.com/random/1000x800/?watercolor" />
+            <p>by karl</p>
+          </div>
+  
+          <div class="portfolio-item">
+            <img src="https://source.unsplash.com/random/1000x800/?sculpture" />
+            <p>by taylor</p>
+          </div>
+  
+          <div class="portfolio-item">
+            <img src="https://source.unsplash.com/random/1000x800/?night,photography" />
+            <p>by penny</p>
+          </div>
+        </div>
+      </section>
+
+
+    <!-- <section id="team">
+      <h3>
+        our team
+      </h3>
+      <img src="./img/abolfazl-eslami-SzFJqZZK0-s-unsplash.jpg">
+      <img src="./img/frankie-cordoba-DvaOIjkrQTI-unsplash.jpg">
+      <img src="./img/frankie-cordoba-fPYJeMmYWM4-unsplash.jpg">
+      <img src="./img/jennie-razumnaya-SsEBne2J4OE-unsplash.jpg">
+      <img src="./img/lesia-a2-3WMtiu5Q-unsplash.jpg">
+      <img src="./img/svetlana-pochatun-DgCaEOnfBdo-unsplash.jpg">
+      <img src="./img/tatev-arsh-mmI4B9R6-G4-unsplash.jpg">
+    </section> -->
+
+    <section id="contact">
+      <div class="contact-intro">
+        <h3 class="contact-title animate-with-fade">bring your art to life with <span class="crayon">Crayon</span><h3>
+        <p class="contact-slogan animate-with-slide">love what you see? send us a shout at our socials!</p>
+      </div>
+      
+      <div class="social-media animate-with-fade">
+        <div class="social-media-icon">
+          <iconify-icon icon="line-md:facebook" width="40" height="40"></iconify-icon>
+          <!-- <img src="./img/facebook.png" alt="Click here for our Facebook page!"> -->
+        </div>
+
+        <div class="social-media-icon">
+          <iconify-icon icon="line-md:twitter-twotone" width="40" height="40"></iconify-icon>
+          <!-- <img src="./img/twitter.png" alt="Click here for our Twitter page!"> -->
+        </div>
+        
+        <div class="social-media-icon">
+          <iconify-icon icon="line-md:instagram" width="40" height="40"></iconify-icon>
+          <!--<img src="./img/instagram.png" alt="Click here for our Instagram page!">-->
+        </div>
+        
+        <div class="social-media-icon">
+          <iconify-icon icon="line-md:discord-twotone" width="40" height="40"></iconify-icon>
+          <!--<img src="./img/messenger.png" alt="Click here to contact us on Discord!">-->
+        </div>
+        
+        <div class="social-media-icon">
+          <iconify-icon icon="line-md:reddit" width="40" height="40"></iconify-icon>
+          <!--<img src="./img/reddit.png" alt="Click here to join our subreddit!">-->
+        </div>
+        
+        <div class="social-media-icon">
+          <iconify-icon icon="line-md:linkedin" width="40" height="40"></iconify-icon>
+          <!--<img src="./img/snapchat.png" alt="Click here to follow us on LinkedIn!">-->
+        </div>
+        
+        <div class="social-media-icon">
+          <iconify-icon icon="line-md:telegram" width="40" height="40"></iconify-icon>
+          <!--<img src="./img/telegram.png" alt="Click here to find us on Telegram!">-->
+        </div>
+        
+        <div class="social-media-icon">
+          <iconify-icon icon="line-md:email-twotone-alt" width="40" height="40"></iconify-icon>
+          <!--<img src="./img/communication.png" alt="Click here to send us an email!">-->
+        </div>
+      </div>
+      
+    </section>
+  </div>
+        <!--<footer>
+      <div class="info">
+        <a>Info</a>
+        <a>Support</a>
+        <a>Marketing</a>
+      </div>
+      <div class="info">
+        <a>Terms of Service</a>
+        <a>Privacy Policy</a>
+      </div>
+      <a id="Copyright"
+        >©
+        <script type="text/javascript">
+          document.write(new Date().getFullYear());
+        </script>
+        ZiQi Wang
+      </a>
+    </footer> -->
+  </body>
+</html>
